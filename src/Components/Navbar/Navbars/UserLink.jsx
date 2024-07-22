@@ -1,6 +1,6 @@
 import React from 'react';
-import { Tooltip, Button } from "@material-tailwind/react";
-
+import Avatar from '@mui/material/Avatar';
+import Tooltip from '@mui/material/Tooltip';
 
 const UserLink = () => {
   return (
@@ -24,10 +24,8 @@ const UserLink = () => {
         </svg>
       </div>
       
-      <div className='mx-4 items-center'>
-      <Tooltip content="Material Tailwind">
-      <Button>Show Tooltip</Button>
-    </Tooltip>
+      <div className='mx-4 flex items-center'>
+    <Tooltip content='Sign Out' placement='bottom'> <Avatar src='/ava.jpg' sizes='sm' alt='avatar'></Avatar></Tooltip>
         <p className='ml-4 font-roboto text-sm text-black font-medium no-underline'>User</p>
       </div>
     </div>
