@@ -1,16 +1,18 @@
 
 import './App.css';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
+import Pages from './Components/Navbar/pages/Pages';
+import AppContext from './Components/AppContext/AppContext';
 
-
-import Navbar from './Components/Navbar/Navbars/Navbar';
-import Home from './Components/Navbar/pages/Home';
 function App() {
   return (
-    <Router>
-       <Home/>
-    </Router>
-    
+    <h1 className='App'>
+      <BrowserRouter>
+      <AppContext>
+     <Pages/>
+     </AppContext>
+     </BrowserRouter>
+    </h1>  
   );
 }
 

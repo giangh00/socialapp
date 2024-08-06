@@ -16,8 +16,10 @@ const Home = () => {
         </div>
 
       <div className='flex-auto w-[60%] absolute left-[20%] top-14 bg-gray-100 rounded-xl'>
-        <CardSection></CardSection>
-        <Main></Main>
+        <div className='w-[90%] mx-auto'>
+          <CardSection></CardSection>
+          <Main></Main>
+        </div>
       </div>
 
         <div className='flex-auto w-[20%] right-0 fixed top-14'>

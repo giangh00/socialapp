@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useRef, useState, useEffect,useContext } from 'react'
 import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 import { FaMapMarked } from "react-icons/fa";
@@ -10,56 +10,15 @@ import avatar from '../../images/ava.jpg';
 import sanji from '../../images/img2.jpg';
 import simayi from '../../images/img3.jpg';
 import lubo from '../../images/img1.webp';
-
+import { AuthContext } from "../AppContext/AppContext";
 
 
 const Leftside = () => {
+    const {user, userData} = useContext(AuthContext);
     const[data,setdata] = useState([]);
     const count = useRef(0);
     
-    const handleRandom =(arr) =>{
-        setdata(arr[Math.floor(Math.random() * arr.length)])
-    }
     
-    useEffect(() => {
-        const imagesList = [
-          { id: '1', image: sanji },
-          { id: '2', image: simayi },
-          { id: '3', image: lubo },
-        ];
-    
-        handleRandom(imagesList); // Set the initial random image
-    
-        let countAd = 0;
-        const startAd = setInterval(() => {
-          countAd++;
-          handleRandom(imagesList); // Update the image every 2 seconds
-          count.current = countAd;
-          if (countAd === 4) {
-            count.current = 0; 
-            countAd = 0;
-          }
-        }, 1000);
-    
-        return () => {
-          clearInterval(startAd); // Cleanup interval on component unmount
-        };
-      }, []);
-    const progressBar=()=>{
-     switch(count.current){
-        case 1:
-            return 15;
-        case 2:
-            return 30;
-        case 3:
-            return 45;
-        case 4:
-            return 60;
-        default:
-            return 0;    
-    
-     }
-    }
 
   return (
     <div className='flex flex-col h-screen bg-white pb-4 border-2 rounded-r-xl shadow-lg'>
@@ -72,7 +31,7 @@ const Leftside = () => {
          </div>
         </div>   
         <div className='flex flex-col items-center pt-4'>
-            <p className='font-roboto font-bold text-md text-gray-700 no-underline tracking-normal leading-none'>User Email</p>
+            <p className='font-roboto font-bold text-md text-gray-700 no-underline tracking-normal leading-none'>{user?.email || userData?.email}</p>
             <p className='font-roboto font-medium text-xs text-gray-700 no-underline tracking-normal leading-none'>Access exclusive tool & insights</p>
             <p className='font-roboto font-medium text-xs text-gray-700 no-underline tracking-normal leading-none py-2'>Try premium for free</p>
         </div>
@@ -103,12 +62,7 @@ const Leftside = () => {
           </div>
         </div>
 
-        <div className=' flex flex-col justify-center items-center pt-4'>
-            <p className='font-roboto font-bold text-lg no-underline tracking-normal leading-none py-2'>Random Ads</p>
-            <div style={{width:`${progressBar()}%`}} className=' bg-blue-600 rounded-xl h-1 mb-4'>
-                <img className='h-36 rounded-lg' src={data.image} alt="" />
-            </div>
-        </div>
+        
     </div>
   )
 }
