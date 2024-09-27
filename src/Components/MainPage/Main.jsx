@@ -132,25 +132,7 @@ import firebase from "firebase/compat/app";
       }
     };
 
-    const downloadImage = async (url, id) => {
-      getDownloadURL(ref(storage, `images/live.png`))
-  .then((url) => {
-    // `url` is the download URL for 'images/stars.jpg'
-
-    // This can be downloaded directly:
-    const xhr = new XMLHttpRequest();
-    xhr.responseType = 'blob';
-    xhr.onload = (event) => {
-      const blob = xhr.response;
-    };
-    xhr.open('GET', url);
-    xhr.send();
-
-  })
-  .catch((error) => {
-    // Handle any errors
-  });
-    };
+   
   
     useEffect(() => {
       const postData = async () => {
@@ -185,7 +167,8 @@ import firebase from "firebase/compat/app";
 
     console.log("is admind?",isAdmin);
     console.log("uid",user?.uid);
-  
+   console.log("user", user);
+   console.log("user", user);
     return (
       <div className="flex flex-col items-center">
         <div className="flex flex-col py-4 w-full bg-white rounded-3xl shadow-lg">
@@ -291,14 +274,14 @@ import firebase from "firebase/compat/app";
                       timestamp={new Date(
                         post?.timestamp?.toDate()
                       )?.toUTCString()}
-                      handleImageDownload = {downloadImage}
+                      
                     ></PostCard>
                   );
                 })}
             </div>
           )}
         </div>
-        <div ref={scrollRef}>{/* refference for later */}</div>
+        <div ref={scrollRef}>{}</div>
       </div>
     );
   };

@@ -7,22 +7,20 @@ import { saveAs } from 'file-saver';
 const PostCard = ({uid, id, logo, name, email, text, image, timestamp}) => {
     const supportedFileTypes = ['image/png', 'image/jpeg', 'image/gif'];
     const handleImageDownload = async () => {
-        if (!image) return; // Handle no image scenario
+        if (!image) return;
       
-        const blob = new Blob([image], { type: 'image/png' }); // Assuming PNG format
-        const fileType = blob.type; // Get actual file type
-      
-        // Check for supported types (e.g., image/png, image/jpeg)
+        const blob = new Blob([image], { type: 'image/png' }); 
+        const fileType = blob.type; 
         if (!supportedFileTypes.includes(fileType)) {
           console.error('Unsupported file type:', fileType);
           
-          return; // Handle unsupported type
+          return; 
         }
       
-        saveAs(blob, 'image.png'); // Use fileType if needed
+        saveAs(blob, 'image.png'); 
       };
   return (
-    <div className='mb-4'>
+    <div className='mb-4 '>
         <div className='flex flex-col py-4 bg-white rounded-t-3xl'>
             <div className='flex items-center pb-4 ml-2'>
                <Avatar sizes='sm' variant='circular' src={logo || avatar} alt='avatar'></Avatar>

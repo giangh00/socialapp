@@ -17,6 +17,7 @@
 .env.development.local
 .env.test.local
 .env.production.local
+src/Components/firebase/media-b69d0-firebase-adminsdk-j73x3-05d311d6b5.json
 
 npm-debug.log*
 yarn-debug.log*
