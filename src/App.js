@@ -1,4 +1,3 @@
-
 import './App.css';
 import { BrowserRouter } from 'react-router-dom';
 import Pages from './Components/Navbar/pages/Pages';
@@ -6,13 +5,13 @@ import AppContext from './Components/AppContext/AppContext';
 
 function App() {
   return (
-    <h1 className='App'>
+    <div className='App'> {/* Changed from <h1> to <div> */}
       <BrowserRouter>
-      <AppContext>
-     <Pages/>
-     </AppContext>
-     </BrowserRouter>
-    </h1>  
+        <AppContext>
+          <Pages />
+        </AppContext>
+      </BrowserRouter>
+    </div>
   );
 }
 
